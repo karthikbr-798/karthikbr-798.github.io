@@ -1,5 +1,301 @@
+<!DOCTYPE html>
+
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Test</title>
-</html>
+<title>Grooming &amp; SPA | Tails &amp; Wiggles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-ribbon {
+            position: relative;
+            overflow: hidden;
+        }
+        .service-ribbon::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background-image: radial-gradient(circle, currentColor 20%, transparent 20%);
+            background-size: 10px 10px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#001c39",
+                        "secondary-fixed": "#d4e3ff",
+                        "secondary": "#0060ac",
+                        "on-tertiary-container": "#2b5100",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#3a6a00",
+                        "tertiary-container": "#77cb16",
+                        "surface-variant": "#e4e2e2",
+                        "secondary-container": "#68abff",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-container-high": "#eae8e7",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f8",
+                        "surface-container": "#efeded",
+                        "primary-fixed": "#ffddb4",
+                        "tertiary-fixed": "#a1fa49",
+                        "primary": "#835500",
+                        "secondary-fixed-dim": "#a4c9ff",
+                        "on-surface-variant": "#524534",
+                        "on-primary-container": "#644000",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed-variant": "#633f00",
+                        "on-surface": "#1b1c1c",
+                        "surface-tint": "#835500",
+                        "on-tertiary-fixed": "#0e2000",
+                        "surface-dim": "#dbd9d9",
+                        "on-tertiary-fixed-variant": "#2a5000",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed-dim": "#87dc2c",
+                        "primary-container": "#f5a623",
+                        "on-secondary-container": "#003e73",
+                        "outline": "#857462",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#303030",
+                        "outline-variant": "#d7c3ae",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "display-lg": ["Quicksand"],
+                        "label-md": ["Open Sans"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "caption": ["Open Sans"],
+                        "body-md": ["Open Sans"],
+                        "body-lg": ["Open Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface shadow-sm sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="pets">pets</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Tails &amp; Wiggles</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-3 py-1 rounded-lg font-label-md text-label-md" href="#">Home</a>
+<a class="text-primary font-bold px-3 py-1 rounded-lg font-label-md text-label-md" href="#">Grooming</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-3 py-1 rounded-lg font-label-md text-label-md" href="#">Shop</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-3 py-1 rounded-lg font-label-md text-label-md" href="#">Contact</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md font-bold hover:scale-105 transition-transform active:scale-95 duration-200">
+                    Book Now
+                </button>
+</div>
+<button class="md:hidden material-symbols-outlined text-on-surface" data-icon="menu">menu</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10 md:py-20">
+<!-- Hero Section -->
+<section class="mb-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div>
+<span class="inline-block px-4 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-md text-label-md mb-6 uppercase tracking-wider">Premium Pet Care</span>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">Expert Pampering for Your <span class="text-primary">Reliable Best Friend.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">We provide a serene, joyful grooming experience that balances high-end professional care with a playful urban touch. Your pet deserves the SPA treatment.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-headline-md text-headline-md font-bold shadow-md hover:shadow-lg hover:-translate-y-1 transition-all active:scale-95">View Packages</button>
+<button class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-headline-md text-headline-md font-bold hover:bg-secondary-fixed transition-all active:scale-95">Our Gallery</button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-[2rem] overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A happy, clean golden retriever sitting in a bright, modern pet spa with soft natural lighting. The dog has a slight smile and is wearing a colorful bandana. The background features high-end minimalist grooming stations with professional equipment in a warm, clean environment. The overall mood is peaceful and professional, reflecting premium care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdZzEyStJUwTpuDugvvXOvg8i-v5EDMUtmwIvBA5CQPK5uVTB7Cx8ziI2APtTOsTdiBclboOPY4Peim93lw_oWFLNRpf5duDtBRHCzRiTljNjA1XtVj50XpLDT5dmWW3xn9g6N0y6fu-FOGxrc7_g-iipw2RVNyl2J5t_mmDU5UZOP5RyqPKgCLTT7xxdq1xAnYcf_8pOfHWMxF90rVVt1LoxOdxaorKf56rVFwRlyY-vU7W17C8LXR7htOmlqulIRRLGAXztZT_c"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-2xl shadow-xl flex items-center gap-4">
+<div class="bg-tertiary-container p-3 rounded-full">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="verified">verified</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md leading-none">Certified</p>
+<p class="font-caption text-caption text-on-surface-variant">Expert Groomers</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Bento Grid -->
+<section class="mb-20">
+<div class="text-center mb-12">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Our SPA Menu</h3>
+<p class="text-on-surface-variant max-w-xl mx-auto">From essential maintenance to luxury aromatherapy, choose the perfect treat for your companion.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Bath & Brush (Large Bento) -->
+<div class="md:col-span-2 bg-surface shadow-md hover:shadow-xl transition-all duration-300 rounded-[1.5rem] p-8 border border-[#EEEEEE] flex flex-col md:flex-row gap-8 items-center group">
+<div class="w-full md:w-1/2 aspect-video rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a small white dog being gently bathed with soft bubbles in a professional ceramic grooming tub. The water is sparkling under warm studio lights. The atmosphere is calm and inviting, emphasizing the soft, tactile friendliness of the grooming process. The shot focuses on the joy and hygiene of the pet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj_NNQg_0lTuOkEv3nSEUTtQiSqvTech8Zg9HJtDLmpfkJTqnQenQDw4b0AXaIoPNIOp5v8VWymZWxJKjnq-64qAE8uuY8L8k2EMaKx13RoOAF-DK06p5ahFNZED3AYEc8sE68LX4UOv1084mXlH3TK1K57LBoLOF-1p2vLDkLH3PBmRyOeVKjGm9HG6Ha8EieaGULBhtsyHBg8goVxK9jf-hi_R5BgEoMDIHZQKGbn6vLS0pxCEjEisYeI25FauEzUABvNOVb18I"/>
+</div>
+<div class="w-full md:w-1/2">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Bath &amp; Brush</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A deep-cleaning organic shampoo bath followed by professional brushing and blow-dry. Perfect for maintaining a healthy, shiny coat.</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface">₹1,200<span class="text-caption font-normal text-on-surface-variant ml-1">/starts</span></span>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:bg-primary-fixed-variant transition-colors">Book Now</button>
+</div>
+</div>
+</div>
+<!-- Nail Trimming -->
+<div class="bg-surface shadow-md hover:shadow-xl transition-all duration-300 rounded-[1.5rem] p-8 border border-[#EEEEEE] service-ribbon text-secondary">
+<div class="mb-6 bg-secondary-fixed w-14 h-14 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed text-3xl" data-icon="cut">cut</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Nail Trimming</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Professional clipping and filing to keep your pet's paws healthy and your floors scratch-free.</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface">₹450</span>
+<button class="material-symbols-outlined bg-surface-container-high p-3 rounded-full text-on-surface hover:bg-secondary-fixed transition-colors" data-icon="chevron_right">chevron_right</button>
+</div>
+</div>
+<!-- Full Grooming -->
+<div class="bg-surface shadow-md hover:shadow-xl transition-all duration-300 rounded-[1.5rem] p-8 border border-[#EEEEEE] flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Full Grooming</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">The works: Bath, brush, stylish haircut, ear cleaning, and nail trimming. A complete makeover!</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span> Breed-Specific Styling
+                            </li>
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span> Sanitizing Paw-wash
+                            </li>
+</ul>
+</div>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface">₹2,800</span>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md text-label-md font-bold shadow-sm active:scale-95 duration-150">Book Now</button>
+</div>
+</div>
+<!-- Aromatherapy SPA (Highlight Card) -->
+<div class="md:col-span-2 bg-gradient-to-br from-tertiary-fixed to-surface-container shadow-md hover:shadow-xl transition-all duration-300 rounded-[1.5rem] p-8 border border-tertiary-container flex flex-col md:flex-row gap-8 items-center overflow-hidden relative">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-white/50 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-tertiary uppercase">Popular Choice</span>
+</div>
+<div class="w-full md:w-2/5 flex flex-col justify-center">
+<h4 class="font-display-lg text-headline-lg text-on-tertiary-fixed mb-2">Aromatherapy SPA</h4>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant mb-6">A luxurious calming ritual using lavender and chamomile oils to soothe anxious pets and refresh their skin.</p>
+<div class="flex items-center gap-4">
+<span class="font-headline-lg text-headline-lg text-on-surface">₹3,500</span>
+<button class="bg-tertiary text-on-tertiary px-8 py-3 rounded-full font-label-md text-label-md font-bold shadow-lg hover:shadow-xl transition-all active:scale-95">Experience Bliss</button>
+</div>
+</div>
+<div class="w-full md:w-3/5 h-64 md:h-full rounded-2xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A peaceful cat closing its eyes during a gentle head massage with aromatic oils in a high-end spa setting. The lighting is low-key and warm, featuring soft shadows and golden highlights. The scene includes minimalist natural elements like small pebbles and a sprig of lavender in the background. The aesthetic is extremely serene and luxury-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfjXifiWfQ5uNX2JYLrJu5L1LL3eposRnc-7lzcOXVeiK3znc3rWLYo69YbfCWQJdygMNRdhadfGWwz_rc9R2e4nrGvg7wvz1BdK-6qLMRg6eTHoic1LvdK8T6N3eJRMDybmH60iV-An-FkaFBu7BwSAqqn_0b-EVJ5-mKCSTrFRS-ynC9USOMA40dW4n8hC908vAA14BxFjVPE8T6jxvyNzBRoLgyWZysSrsnyhaS_xA3ust_BULx-u3jt4-g1mXkBnd15h3nBVg"/>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-secondary-container text-on-secondary-container rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-32 h-32 opacity-10">
+<span class="material-symbols-outlined text-[8rem]" data-icon="pets">pets</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-display-lg text-display-lg mb-6">Ready to Book a Wag-tastic Time?</h3>
+<p class="font-body-lg text-body-lg mb-10 max-w-2xl mx-auto opacity-90">Join our club of 500+ happy pets in the city. Professional care is just a few clicks away.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 rounded-full font-headline-md text-headline-md font-bold shadow-lg hover:shadow-xl transition-all active:scale-95 duration-200">Book Appointment</button>
+<button class="bg-surface-container-lowest text-secondary px-10 py-5 rounded-full font-headline-md text-headline-md font-bold hover:bg-secondary-fixed transition-all active:scale-95 duration-200">Call Us: +91 98765 43210</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="w-full py-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter text-center md:text-left">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md text-primary font-bold">Tails &amp; Wiggles</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Premium Pet SPA &amp; Shop located in the heart of the city.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-md text-label-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-md text-label-md" href="#">Products</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-md text-label-md" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-md text-label-md" href="#">Privacy Policy</a>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 Tails &amp; Wiggles. Premium Pet SPA &amp; Shop.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-2 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
+<span class="font-label-md text-label-md">Grooming</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-md text-label-md">Contact</span>
+</a>
+</nav>
+<!-- FAB (Suppressed on Details but shown on main listing) -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-primary-container text-on-primary-container w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all z-40 group">
+<span class="material-symbols-outlined text-3xl" data-icon="calendar_month">calendar_month</span>
+<span class="absolute right-full mr-4 bg-surface px-4 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-on-surface font-bold">Book Walk</span>
+</button>
+</body></html>
